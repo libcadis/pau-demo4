@@ -1460,7 +1460,7 @@ export default function App() {
             <motion.button 
               whileTap={{ scale: 0.9 }}
               whileHover={{ scale: 1.05 }}
-              onClick={() => window.location.href = "/agendarturno.html"}
+              onClick={() => window.location.href = "/agendar turno.html"}
               className={`flex-1 py-4 rounded-full flex items-center justify-center transition-all ${activeView === "booking" ? "gradient-accent text-black shadow-lg shadow-purple-500/20" : "hover:bg-white/5 text-white/60"}`}
             >
               <Calendar className="w-5 h-5" />

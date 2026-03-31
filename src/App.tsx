@@ -999,7 +999,7 @@ const slides = [
     subtitle: "Paula Pintos Hair Studio",
     video: "/video/video-cambio-tu-look.mp4",
     cta: "Agendar Turno",
-    action: "booking"
+    action: "agendarturno-externa"
   },
   {
     id: "model",
@@ -1016,15 +1016,15 @@ const slides = [
     subtitle: "Productos profesionales para vos",
     video: "https://player.vimeo.com/external/517090081.sd.mp4?s=454cabc046506d77678976759903fa2e93427249&profile_id=165&oauth2_token_id=57447761",
     cta: "Ver Tienda",
-    action: "store"
+    action: "tienda-externa"
   },
   {
     id: "courses",
     title: "Colorimetría",
     subtitle: "Capacitaciones profesionales",
     video: "/video/video-colorimetr%C3%ADa.mp4",
-    cta: "Ver Cursos",
-    action: "courses"
+    cta: "Consultar por WhatsApp",
+    action: "whatsapp-colorimetria"
   },
   {
     id: "instagram",
@@ -1201,14 +1201,16 @@ export default function App() {
       window.open("https://www.instagram.com/pau.pintos/", "_blank");
       return;
     }
-    if (action === "booking") {
-      setActiveView("booking");
-      window.scrollTo({ top: 0, behavior: 'smooth' });
+    if (action === "booking" || action === "agendarturno-externa") {
+      window.location.href = "/agendar turno.html";
       return;
     }
-    if (action === "store") {
-      setActiveView("store");
-      window.scrollTo({ top: 0, behavior: 'smooth' });
+    if (action === "store" || action === "tienda-externa") {
+      window.location.href = "/tienda.html";
+      return;
+    }
+    if (action === "whatsapp-colorimetria") {
+      window.open("https://wa.me/5491122334455?text=Hola%20quiero%20consultar%20por%20los%20cursos%20de%20colorimetria", "_blank");
       return;
     }
     setActiveView(action as any);
@@ -1458,7 +1460,7 @@ export default function App() {
             <motion.button 
               whileTap={{ scale: 0.9 }}
               whileHover={{ scale: 1.05 }}
-              onClick={() => setActiveView("booking")}
+              onClick={() => window.location.href = "/agendarturno.html"}
               className={`flex-1 py-4 rounded-full flex items-center justify-center transition-all ${activeView === "booking" ? "gradient-accent text-black shadow-lg shadow-purple-500/20" : "hover:bg-white/5 text-white/60"}`}
             >
               <Calendar className="w-5 h-5" />
@@ -1466,7 +1468,7 @@ export default function App() {
             <motion.button 
               whileTap={{ scale: 0.9 }}
               whileHover={{ scale: 1.05 }}
-              onClick={() => setActiveView("store")}
+              onClick={() => window.location.href = "/tienda.html"}
               className={`flex-1 py-4 rounded-full flex items-center justify-center transition-all ${activeView === "store" ? "gradient-accent text-black shadow-lg shadow-purple-500/20" : "hover:bg-white/5 text-white/60"}`}
             >
               <ShoppingBag className="w-5 h-5" />

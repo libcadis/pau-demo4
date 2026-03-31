@@ -1,1 +1,0 @@
-Esta carpeta contiene archivos estáticos para ser servidos por Vite/Netlify.
